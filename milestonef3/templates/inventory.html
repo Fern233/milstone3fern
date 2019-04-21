@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% block content %}
+    <h3> Inventory List </h3>
+    {% for stock in inventory %}
+        <p> <b>Name:</b>b> {{stock.name}}, <b>Num:</b> {{stock.quantity}}, <b>Base price:</b> {{stock.basePrice}}  </p>
+    {% endfor %}
+       <form method = "POST" , action = "/inventory">
+            <input type = "text",   name = "name", placeholder="input_name">
+            <input type = "number", name = "quantity",placeholder ="input_num">
+            <button type="submit">Add</button>
+       </form>
+       <form method = "POST" , action = "/inventory">
+            <input type = "text",   name = "delete", placeholder="input_name">
+            <button type="submit">Delete</button>
+       </form>
+
+        {% for message in messages %}
+        <p> {{ message }}</p>
+        {% endfor %}
+    {% endblock %}
+</head>
+<body>
+
+</body>
+</html>

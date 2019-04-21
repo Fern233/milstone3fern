@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    {% block content %}
+    <h3> Current Order List </h3>
+    {% for order in orders %}
+        <p> <b>ID:</b> {{order.orderID}} </p>
+        <p> <b>Main:</b>  </p>
+            {% for main in order.mainFoods %}
+                 <p>&ensp;&ensp;&ensp;{{main}} </p>
+            {% endfor %}
+
+        <p> <b>Extra</b>:  </p>
+            {% for extra in order.extraFoods %}
+                <p>&ensp;&ensp;&ensp;{{extra}} </p>
+            {% endfor %}
+        <p> <b>status:</b> {{ order.status }}</p>
+        <p> --------------------------</p>
+    {% endfor %}
+    {% endblock %}
+
+
+</body>
+</html>
